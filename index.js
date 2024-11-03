@@ -1,6 +1,20 @@
 const Web3 = require('web3')
 const web3 = new Web3('https://base-mainnet.infura.io/v3/200a54a78d294101bbd166a319063408')
 const web3Socket = new Web3('wss://base-mainnet.infura.io/ws/v3/200a54a78d294101bbd166a319063408')
+
+const http = require('http');
+const url = require('url');
+
+function handler(req, res) {
+   res.writeHead(200, {'Content-type':'text/plain'});
+    res.write('Hello, I am a webserver !');
+    res.end();
+}
+
+const server = http.createServer(handler);
+
+server.listen(3000);
+
 const contractUni = '0x4752ba5DBc23f44D87826276BF6Fd6b1C372aD24'
 
 const abiUni = [
